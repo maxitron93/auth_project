@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # My apps
     'rest_framework',
     'account',
+    'rest_framework.authtoken',
 
     # django apps
     'django.contrib.admin',
@@ -127,3 +128,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
