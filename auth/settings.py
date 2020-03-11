@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # My apps
+    'account',
+
+    # django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -66,6 +70,10 @@ TEMPLATES = [
         },
     },
 ]
+
+# Need to define this when creating a custom user model
+# Overrides the default behaviour of using the default User object for authentication
+AUTH_USER_MODEL = 'account.Account'
 
 WSGI_APPLICATION = 'auth.wsgi.application'
 
