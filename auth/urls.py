@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.authtoken import views
+from auth.views import Register
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/accounts/', include('account.urls')),
-    path('auth/login/', views.obtain_auth_token)
+    path('auth/register', Register.as_view()), # Creates account and sends back token
+    path('auth/login/', views.obtain_auth_token), # Sends token when valid username and password is provided
+    path('api/accounts/', include('account.api.urls')),
+
 ]
