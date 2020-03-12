@@ -15,5 +15,6 @@ class Register(APIView):
             token = Token.objects.get(user=account)
             data['token'] = token.key
         else:
+            # If the serializer throws any errors, return the error
             data = serializer.errors
         return Response(data=data, status=status.HTTP_201_CREATED)
